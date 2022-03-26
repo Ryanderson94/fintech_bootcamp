@@ -14,18 +14,15 @@ First, let's start with some calculations on a list of prices for 5 loans.
 """
 loan_costs = [500, 600, 200, 1000, 450]
 
-# Determine number of all loans in the list and assign to a variable to later calculate average
-# Print the number of loans from the list
+# Determine number of all loans in the list and assign to a variable to later calculate average and print the variable
 loan_count = len(loan_costs)
 print(f"The total number of loans is: {loan_count}")
 
-# Determine the sum of all loans in the list and assign to a variable to later calculate average
-# Print the total value of the loans
+# Determine the sum of all loans in the list and assign to a variable to later calculate average and print the variable
 total_loans = sum(loan_costs)
 print(f"The total value of all loans is: {total_loans}")
 
-# Calculate the average loan amount 
-# Print the average loan amount
+# Calculate the average loan amount, assign to variable and print
 average_loan_amount = total_loans / loan_count
 print(f"The average value of the loans is: {average_loan_amount}")
 
@@ -72,14 +69,11 @@ print(f"The future value of the loan is: ${future_value}")
 # Print the number of months remaining in the loan
 print(f"The number of months remaining in the loan: {remaining_months}")
 
-# Determine the present value of the loan, and print the present value
+# Determine the present value of the loan and print 
 present_value = future_value / (1 + .20/12) ** remaining_months
 print(f"The present value of this loan is: {present_value: .2f}")
 
-# If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
-# @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
-#    If the present value of the loan is greater than or equal to the cost, then print a message that says the loan is worth at least the cost to buy it.
-#    Else, the present value of the loan is less than the loan cost, then print a message that says that the loan is too expensive and not worth the price.
+# Evaluate if the present value of the loan is greater than or equal to the cost, and print a message based on the outcome
 if present_value >= loan.get("loan_price"):
     print("The loan is worth at least the cost to buy it.")
 else: 
@@ -104,19 +98,14 @@ new_loan = {
     "future_value": 1000,
 }
 
-# @TODO: Define a new function that will be used to calculate present value.
-#    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
-#    The function should return the `present_value` for the loan.
-# YOUR CODE HERE!
+# Define function leveraging variables obtained earlier in the code to calculate the present value
 def calc_pv(future_value , remaining_months , annual_discount_rate):
     present_value = future_value / (1 + (annual_discount_rate/12)) ** remaining_months
 
     return present_value
 
-# @TODO: Use the function to calculate the present value of the new loan given below.
-#    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
-# YOUR CODE HERE!
-
+# Use calc_pv function to calculate present value of new loan, based on new_loan data points
+# Print the present value of the new loan
 new_loan_present_value = calc_pv(new_loan.get("future_value") , new_loan.get("remaining_months") , .20)
 print(f"The present value of the new loan is: ${round(new_loan_present_value , 2)}")
 
@@ -159,14 +148,10 @@ loans = [
     },
 ]
 
-# @TODO: Create an empty list called `inexpensive_loans`
-# YOUR CODE HERE!
-
+# Create an empty list to be populated later
 inexpensive_loans = []
 
-# @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
-# YOUR CODE HERE!
-
+# Loop through 'loans' list to find inexpensive loans. If loan meets criteria, append to 'inexpensive_loans' list
 for current_loan in loans:
     if current_loan["loan_price"] <= 500:
         inexpensive_loans.append(current_loan)
