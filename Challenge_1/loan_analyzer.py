@@ -180,9 +180,6 @@ header = ["loan_price", "remaining_months", "repayment_interval", "future_value"
 # Set the output file path
 output_path = Path("inexpensive_loans.csv")
 
-# Import the csv function
-import csv
-
 with open(output_path, 'w', newline='') as csvfile:
     # Create a csvwriter
     csvwriter = csv.writer(csvfile, delimiter=",")
